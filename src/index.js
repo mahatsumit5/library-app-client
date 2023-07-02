@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
-import { Provider } from "react-redux";
+import { Provider } from "react-redux"; //for redux-toolkot
 import { store, persistor } from "./store";
 import { BrowserRouter } from "react-router-dom";
-import { PersistGate } from "redux-persist/integration/react";
+import { PersistGate } from "redux-persist/integration/react"; //for reduz-persistor  which is for localstorage
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(

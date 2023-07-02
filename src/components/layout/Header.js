@@ -8,9 +8,9 @@ import { ImExit } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { persistor } from "../../store";
-import { setUser } from "../../pages/sgnup-signin/userSlice";
+import { setUser } from "../../pages/signup-signin/userSlice";
 
-const Header = () => {
+export const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userInfo);
 
@@ -18,6 +18,7 @@ const Header = () => {
     persistor.purge().then(() => {
       console.log("signed out");
     });
+    // remove user for the redux
     dispatch(setUser({}));
   };
   return (
@@ -59,5 +60,3 @@ const Header = () => {
     </Navbar>
   );
 };
-
-export default Header;

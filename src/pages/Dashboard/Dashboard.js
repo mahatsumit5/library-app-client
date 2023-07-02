@@ -1,4 +1,4 @@
-import { UserLayout } from "../../components/layout/custome-input/UserLayout";
+import { UserLayout } from "../../components/layout/UserLayout";
 
 const Dashboard = () => {
   return <UserLayout title="Dashboard">Hello</UserLayout>;

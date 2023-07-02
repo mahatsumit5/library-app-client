@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Header from "../../components/layout/Header";
-import Footer from "../../components/layout/Footer";
-import CustomeInput from "../../components/layout/custome-input/CustomeInput";
+import { Header } from "../../components/layout/Header";
+import { Footer } from "../../components/layout/Footer";
+import CustomeInput from "../../components/custome-input/CustomeInput";
 import { BiSolidUserDetail } from "react-icons/bi";
 import { useState } from "react";
 import { signInAdminAction } from "./userAction";

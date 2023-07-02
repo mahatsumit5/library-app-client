@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import Header from "../../components/layout/Header";
-import Footer from "../../components/layout/Footer";
+import { Header } from "../../components/layout/Header";
+import { Footer } from "../../components/layout/Footer";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
-import CustomeInput from "../../components/layout/custome-input/CustomeInput";
+import CustomeInput from "../../components/custome-input/CustomeInput";
 import { BiSolidUserDetail } from "react-icons/bi";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { postUser } from "../../helper/axios";
+import { useSelector } from "react-redux";
 const inputs = [
   {
     label: "First Name",
@@ -62,14 +63,15 @@ const inputs = [
   },
 ];
 const SignUp = () => {
+  const { user } = useSelector((state) => state.userInfo);
   const [form, setForm] = useState({
     role: "student",
   });
 
-  function handldeOnChange(e) {
+  const handldeOnChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
-  }
+  };
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
@@ -97,8 +99,18 @@ const SignUp = () => {
         <Form className="m-5 p-5 border shadow-lg" onSubmit={handleOnSubmit}>
           <h1>
             <BiSolidUserDetail />
-            Add New Admin
+            Add New Admin {user?.role === "admin" && "For Admin"}
           </h1>
+          {user?.role === "admin" && (
+            <Form.Group className="mb-3">
+              <Form.Label>Select user type</Form.Label>
+              <Form.Select onChange={handldeOnChange} required name="role">
+                <option value="">--select--</option>
+                <option value="admin">Admin</option>
+                <option value="student">Student</option>
+              </Form.Select>
+            </Form.Group>
+          )}
           {inputs.map((item, i) => (
             <CustomeInput key={i} {...item} onChange={handldeOnChange} />
           ))}
