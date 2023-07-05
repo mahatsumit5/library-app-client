@@ -4,9 +4,11 @@ import CustomeInput from "../custome-input/CustomeInput";
 import { useDispatch, useSelector } from "react-redux";
 import { UserLayout } from "../layout/UserLayout";
 import { postBookAction } from "../../pages/Books/bookAction";
+import { useNavigate } from "react-router-dom";
 
 export const NewBook = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user } = useSelector((state) => state.userInfo);
   const [form, setForm] = useState({});
   const handleOnChange = (e) => {
@@ -19,6 +21,7 @@ export const NewBook = () => {
 
     dispatch(postBookAction(form));
     console.log(form);
+    navigate("/books");
   };
 
   const inputs = [

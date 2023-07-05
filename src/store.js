@@ -15,9 +15,9 @@ const userPresistConfig = {
 const presistedUserReducer = persistReducer(userPresistConfig, userReducer);
 const store = configureStore({
   reducer: {
-    userInfo: presistedUserReducer,
-    testUser: userReducer,
-    bookInfo: bookReducer,
+    userInfo: presistedUserReducer, //this is for the user data stored in the local storage
+    // testUser: userReducer,
+    bookInfo: bookReducer, //this is stored inside the redux store
   },
 });
 const persistor = persistStore(store);

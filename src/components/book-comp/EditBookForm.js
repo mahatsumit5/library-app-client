@@ -31,7 +31,8 @@ export const EditBookForm = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateBookAction(form));
+    const isUpdated = dispatch(updateBookAction(form));
+    isUpdated && navigate("/books");
   };
 
   const handleOnDelete = async () => {
