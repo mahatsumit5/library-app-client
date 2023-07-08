@@ -3,6 +3,7 @@ import axios from "axios";
 const rootApi = "http://localhost:8000";
 const userApi = rootApi + `/api/v1/user`;
 const bookApi = rootApi + `/api/v1/book`;
+const burrowApi = rootApi + `/api/v1/burrow`;
 export const postUser = async (userData) => {
   try {
     const { data } = await axios.post(userApi, userData);
@@ -67,6 +68,19 @@ export const deleteBook = async (_id) => {
 export const loginUser = async (userData) => {
   try {
     const { data } = await axios.post(userApi + "/login", userData);
+    console.log(data);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
+
+export const postBurrow = async (obj) => {
+  try {
+    const { data } = await axios.post(burrowApi, obj);
     console.log(data);
     return data;
   } catch (error) {
