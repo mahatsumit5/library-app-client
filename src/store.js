@@ -5,7 +5,8 @@ import storage from "redux-persist/lib/storage"; //default localstorage for web
 
 import userReducer from "./pages/signup-signin/userSlice.js";
 import bookReducer from "./pages/Books/bookSlice.js";
-
+import burrowReducer from "./pages/burrow-history/burrowSlice.js";
+import userListReducer from "./pages/Students/studentSlice.js";
 const userPresistConfig = {
   //this is a configurations
   key: "userInfo",
@@ -15,9 +16,11 @@ const userPresistConfig = {
 const presistedUserReducer = persistReducer(userPresistConfig, userReducer);
 const store = configureStore({
   reducer: {
-    userInfo: presistedUserReducer,
-    testUser: userReducer,
-    bookInfo: bookReducer,
+    userInfo: presistedUserReducer, //this is for the user data stored in the local storage
+    // testUser: userReducer,
+    bookInfo: bookReducer, //this is stored inside the redux store
+    burrowInfo: burrowReducer,
+    studentListInfo: userListReducer,
   },
 });
 const persistor = persistStore(store);

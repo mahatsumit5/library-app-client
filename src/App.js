@@ -14,6 +14,12 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchBookAction } from "./pages/Books/bookAction";
 import { EditBookForm } from "./components/book-comp/EditBookForm";
+import { BookLanding } from "./pages/Books/BookLanding";
+import { BurrowHistory } from "./pages/burrow-history/BurrowHistory.js";
+import { fetchBurrowAction } from "./pages/burrow-history/burrowAction";
+import { Student } from "./pages/Students/Student";
+import { Profile } from "./pages/Profile/Profile";
+import { EditUser } from "./components/user/EditUser";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,15 +32,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
-
-        <Route
-          path="/signup"
-          element={
-            <PrivateRoute>
-              <SignUp />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/book/:_id" element={<BookLanding />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="profile/edit/:_id" element={<EditUser />} />
         <Route
           path="/dashboard"
           element={
@@ -44,7 +45,7 @@ function App() {
           }
         />
         <Route
-          path="/books"
+          path="/book"
           element={
             <PrivateRoute>
               <Books />
@@ -60,10 +61,26 @@ function App() {
           }
         />
         <Route
+          path="/students"
+          element={
+            <PrivateRoute>
+              <Student />
+            </PrivateRoute>
+          }
+        />
+        <Route
           path="/book/edit/:_id"
           element={
             <PrivateRoute>
               <EditBookForm />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/burrow-history"
+          element={
+            <PrivateRoute>
+              <BurrowHistory />
             </PrivateRoute>
           }
         />

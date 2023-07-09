@@ -9,22 +9,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { persistor } from "../../store";
 import { setUser } from "../../pages/signup-signin/userSlice";
+import { setBurrow } from "../../pages/burrow-history/burrowSlice";
 
 export const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userInfo);
 
   const handleOnSignout = () => {
-    persistor.purge().then(() => {
-      console.log("signed out");
-    });
+    persistor.purge().then(() => {});
     // remove user for the redux
     dispatch(setUser({}));
+    //remove burrowslist from the arraylist
+    dispatch(setBurrow([]));
   };
   return (
     <Navbar expand="sm" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">LM</Navbar.Brand>
+        <Navbar.Brand href="/">LM</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

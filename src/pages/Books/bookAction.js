@@ -22,6 +22,7 @@ export const updateBookAction = (bookObj) => async (dispatch) => {
 
   if (status === "success") {
     dispatch(fetchBookAction());
+    return true;
   }
 };
 export const deleteBookAction = (_id) => async (dispatch) => {

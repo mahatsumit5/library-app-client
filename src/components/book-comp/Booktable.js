@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export const BookTable = () => {
   const { books } = useSelector((state) => state.bookInfo);
-  console.log(books);
   return (
     <Table striped bordered hover>
       <thead>
@@ -14,6 +13,8 @@ export const BookTable = () => {
           <th>Thumnbnail</th>
           <th>Title</th>
           <th>Year</th>
+          <th>Description</th>
+          <th>Availability</th>
         </tr>
       </thead>
       <tbody>
@@ -21,11 +22,14 @@ export const BookTable = () => {
           <tr key={item._id}>
             <td>{i + 1}</td>
             <td>
-              <img src={item.thumbnail} width="150px" alt="" />
+              <Link to={`${item._id}`}>
+                <img src={item.thumbnail} width="150px" alt="" />{" "}
+              </Link>
             </td>
             <td>{item.title}</td>
             <td>{item.year}</td>
             <td>{item.summary}</td>
+            <td>{item.isAvailable.toString().toUpperCase()}</td>
             <td>
               <Link to={`/book/edit/${item._id}`}>
                 <Button variant="warning">Edit</Button>

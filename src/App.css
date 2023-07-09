@@ -1,5 +1,5 @@
 .main {
-  min-height: calc(100vh - 130px);
+  min-height: calc(100vh - 169px);
 }
 
 .left-menu {
@@ -7,9 +7,40 @@
   min-height: 100vh;
 }
 
-ul {
-  list-style: none;
-}
 .left-menu li {
-  margin: 1rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.carousel {
+  height: 70vh;
+}
+
+.carousel img {
+  height: 60vh;
+}
+
+.review {
+  display: flex;
+
+  /* flex-wrap: wrap; */
+}
+
+.left-name {
+  /* border: 1px solid grey; */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 2rem;
+  background: #0d6398;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rigt-review {
+  width: calc(100% - 100px);
 }

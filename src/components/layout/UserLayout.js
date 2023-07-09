@@ -3,11 +3,17 @@ import { Header } from "./Header";
 import { Container } from "react-bootstrap";
 import { Footer } from "./Footer";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBurrowAction } from "../../pages/burrow-history/burrowAction";
+import { fetchStudentAction } from "../../pages/Students/studentAction";
 
 export const UserLayout = ({ children, title }) => {
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userInfo);
-
+  const handleOnClick = () => {
+    console.log("clicked");
+    dispatch(fetchBurrowAction());
+  };
   return (
     <div className="d-flex">
       <div className="left-menu bg-dark text-light  ">
@@ -20,7 +26,11 @@ export const UserLayout = ({ children, title }) => {
             </Link>
           </li>
           <li>
-            <Link className="nav-link" to="/burrow-history">
+            <Link
+              className="nav-link"
+              to="/burrow-history"
+              onClick={handleOnClick}
+            >
               Burrow History
             </Link>
           </li>
@@ -28,7 +38,7 @@ export const UserLayout = ({ children, title }) => {
           {user?.role === "admin" && (
             <>
               <li>
-                <Link className="nav-link" to="/books">
+                <Link className="nav-link" to="/book">
                   Books
                 </Link>
               </li>
