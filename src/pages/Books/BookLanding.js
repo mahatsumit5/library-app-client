@@ -3,12 +3,14 @@ import { Footer } from "../../components/layout/Footer";
 import { Header } from "../../components/layout/Header";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { addBurrowAction } from "../burrow-history/burrowAction";
+import { Review } from "../../components/review/Review";
 
 export const BookLanding = () => {
   const dispatch = useDispatch();
+
   const { _id } = useParams();
   const { books } = useSelector((state) => state.bookInfo);
   const { user } = useSelector((state) => state.userInfo);
@@ -66,6 +68,10 @@ export const BookLanding = () => {
               )}
             </Col>
           </Row>
+
+          <Row>
+            <Review title={title} />
+          </Row>
           <Row className="mt-5">
             <Col>
               <h3>Reviews</h3>
@@ -74,7 +80,7 @@ export const BookLanding = () => {
                 <div className="review  pt-4 px-4  gap-3">
                   <div className="left-name"> Pa </div>
                   <div className="right-review p-2 shadow-lg px-4 gap-3">
-                    <h3>Amazing EditBookForm</h3>
+                    <h3>{user.fName}</h3>
                     <div>5 star</div>
                     <p>
                       Lorem, ipsum dolor sit amet consectetur adipisicing elit.

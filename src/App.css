@@ -14,7 +14,7 @@
 }
 
 .carousel {
-  height: 70vh;
+  height: 60vh;
 }
 
 .carousel img {
@@ -43,4 +43,16 @@
 
 .rigt-review {
   width: calc(100% - 100px);
+}
+.stars {
+  font-size: 2rem;
+}
+
+svg {
+  /* border: solid yellow; */
+  color: rgba(249, 249, 0, 0.804);
+}
+
+svg:hover {
+  color: rgb(92, 230, 13);
 }

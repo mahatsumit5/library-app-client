@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { UserLayout } from "../../components/layout/UserLayout";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
+import { fetchStudentAction } from "./studentAction";
 
 export const Student = () => {
   const { studentList } = useSelector((store) => store.studentListInfo);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchStudentAction());
+  }, []);
   console.log(studentList);
   return (
     <div>
@@ -20,7 +25,7 @@ export const Student = () => {
             </tr>
           </thead>
           <tbody>
-            {studentList.map((student, i) => (
+            {studentList?.map((student, i) => (
               <tr key={i}>
                 <td>{student.fName.toUpperCase()}</td>
                 <td>{student.lName.toUpperCase()}</td>

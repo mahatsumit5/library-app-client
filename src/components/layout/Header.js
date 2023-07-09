@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { persistor } from "../../store";
 import { setUser } from "../../pages/signup-signin/userSlice";
 import { setBurrow } from "../../pages/burrow-history/burrowSlice";
+import { setStudentList } from "../../pages/Students/studentSlice";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export const Header = () => {
     dispatch(setUser({}));
     //remove burrowslist from the arraylist
     dispatch(setBurrow([]));
+    dispatch(setStudentList([]));
   };
   return (
     <Navbar expand="sm" bg="dark" variant="dark">

@@ -61,6 +61,13 @@ const inputs = [
     placeholder: "222 george st, sydney",
     type: "text",
   },
+  {
+    label: "Profile Pic",
+    name: "profile",
+    required: false,
+    placeholder: ":http://www.google.com",
+    type: "url",
+  },
 ];
 const SignUp = () => {
   const { user } = useSelector((state) => state.userInfo);
