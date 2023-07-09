@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { postBurrow } from "../../helper/axios";
 import { addBurrowAction } from "../burrow-history/burrowAction";
 
 export const BookLanding = () => {
@@ -13,20 +12,21 @@ export const BookLanding = () => {
   const { _id } = useParams();
   const { books } = useSelector((state) => state.bookInfo);
   const { user } = useSelector((state) => state.userInfo);
-  const { thumbnail, title, author, year, summary } =
+  const { thumbnail, title, author, year, summary, isAvailable, dueDate } =
     books.find((item) => item._id === _id) || {};
 
   const handleOnBurrow = () => {
-    if (window.alert("are you sure want ot burrow this book?")) {
-      const obj = {
-        bookId: _id,
-        bookName: title,
-        thumbnail: thumbnail,
-        userId: user._id,
-        userName: user.fName,
-      };
-      dispatch(addBurrowAction(obj));
-    }
+    console.log("first");
+    const obj = {
+      bookId: _id,
+      bookName: title,
+      thumbnail: thumbnail,
+      userId: user._id,
+      userName: user.fName + user.lName,
+    };
+    console.log(obj);
+
+    dispatch(addBurrowAction(obj));
   };
   return (
     <div>
@@ -45,9 +45,17 @@ export const BookLanding = () => {
               <p>{summary}</p>
               {user?._id ? (
                 <div className="d-grid">
-                  <Button variant="dark" onClick={handleOnBurrow}>
-                    Burrow Now
-                  </Button>
+                  {isAvailable ? (
+                    <Link to="/">
+                      <Button variant="dark" onClick={handleOnBurrow}>
+                        Burrow Now
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button variant="dark" disabled>
+                      Available From : {dueDate?.slice(0, 10)}
+                    </Button>
+                  )}
                 </div>
               ) : (
                 <div className="d-grid">

@@ -32,13 +32,13 @@ export const EditBookForm = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     const isUpdated = dispatch(updateBookAction(form));
-    isUpdated && navigate("/books");
+    isUpdated && navigate("/book");
   };
 
   const handleOnDelete = async () => {
     if (window.confirm("Are you sure Mate?")) {
       const isdeleted = dispatch(deleteBookAction(_id));
-      isdeleted && navigate("/books");
+      isdeleted && navigate("/book");
     }
   };
 

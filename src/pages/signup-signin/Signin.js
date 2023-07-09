@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 const Signin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [form, setForm] = useState();
+  const [form, setForm] = useState({});
   const { user } = useSelector((state) => state.userInfo);
 
   useEffect(() => {
@@ -25,9 +25,9 @@ const Signin = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
     dispatch(signInAdminAction(form));
   };
+
   const inputs = [
     {
       label: "Email",

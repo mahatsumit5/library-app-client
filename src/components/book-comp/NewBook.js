@@ -21,7 +21,7 @@ export const NewBook = () => {
 
     dispatch(postBookAction(form));
     console.log(form);
-    navigate("/books");
+    navigate("/book");
   };
 
   const inputs = [
