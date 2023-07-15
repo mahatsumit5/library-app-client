@@ -11,7 +11,7 @@ import { persistor } from "../../store";
 import { setUser } from "../../pages/signup-signin/userSlice";
 import { setBurrow } from "../../pages/burrow-history/burrowSlice";
 import { setStudentList } from "../../pages/Students/studentSlice";
-
+import { FcLibrary } from "react-icons/fc";
 export const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userInfo);
@@ -27,7 +27,10 @@ export const Header = () => {
   return (
     <Navbar expand="sm" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">LM</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <FcLibrary />
+          Library Management
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

@@ -10,7 +10,6 @@ export const Student = () => {
   useEffect(() => {
     dispatch(fetchStudentAction());
   }, []);
-  console.log(studentList);
   return (
     <div>
       <UserLayout title="List of students found">

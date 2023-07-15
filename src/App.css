@@ -50,9 +50,18 @@
 
 svg {
   /* border: solid yellow; */
-  color: rgba(249, 249, 0, 0.804);
+  color: rgba(15, 15, 15, 0.804);
 }
 
 svg:hover {
-  color: rgb(92, 230, 13);
+  color: rgb(224, 255, 20);
+}
+
+.right-review {
+  /* margin-top: -70px !important ; */
+  width: 100%;
+}
+
+.fs-3 > input {
+  display: none;
 }

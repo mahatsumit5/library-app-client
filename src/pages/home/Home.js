@@ -26,16 +26,14 @@ const Home = () => {
       <Header />
       <section className="main">
         <div className="hero">
-          {" "}
           <CustomeCarousel />
         </div>
-        <Container className="mt-5">
+        <Container fluid className="mt-5">
           <Row>
             <Col>
               <div className="d-flex justify-content-between">
                 <div className="left">{display.length} Books Found</div>
                 <div className="right">
-                  {" "}
                   <Form.Control
                     placeholder="search by book name"
                     onChange={handldeOnSearch}
@@ -43,10 +41,8 @@ const Home = () => {
                 </div>
               </div>
               <div className="book-list d-flex justify-content-between flex-wrap gap=3 mt-5">
-                {" "}
                 {display?.map((book, i) => (
                   <Link to={`book/${book._id}`}>
-                    {" "}
                     <CustomeCard key={i} {...book} />
                   </Link>
                 ))}

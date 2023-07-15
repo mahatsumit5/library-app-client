@@ -3,21 +3,32 @@ import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import { fetchBurrowAction, updateBurrowAction } from "./burrowAction";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { CustomModal } from "../../components/modal/CustomModal";
+import { Review } from "../../components/review/ReviewForm";
+import { setModalShow } from "../../systemSlice";
 
 export const BurrowHistory = () => {
   const dispatch = useDispatch();
   const { burrows } = useSelector((state) => state.burrowInfo);
   const { _id } = useSelector((state) => state.userInfo.user);
-
+  const [selectedReview, setSelectedReview] = useState({});
   useEffect(() => {
     dispatch(fetchBurrowAction());
   }, [dispatch, _id]);
+
   const handleOnReturn = (burrowObj) => {
     dispatch(updateBurrowAction(burrowObj));
   };
+  const handleOnReview = (book) => {
+    dispatch(setModalShow(true));
+    setSelectedReview(book);
+  };
   return (
     <UserLayout title="Burrow History">
+      <CustomModal moddalTitle="Enter your Review">
+        <Review book={selectedReview} />
+      </CustomModal>
       <div className="mt-3">
         <Table striped bordered hover>
           <thead>
@@ -28,6 +39,7 @@ export const BurrowHistory = () => {
               <th>Burrowed By</th>
               <th>IsReturned</th>
               <th>Returned Date</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -51,6 +63,19 @@ export const BurrowHistory = () => {
                       onClick={() => handleOnReturn(item)}
                     >
                       Return
+                    </Button>
+                  </td>
+                ) : (
+                  <></>
+                )}
+
+                {item.userId === _id ? (
+                  <td>
+                    <Button
+                      variant="success"
+                      onClick={() => handleOnReview(item)}
+                    >
+                      Review
                     </Button>
                   </td>
                 ) : (

@@ -9,13 +9,13 @@ const Books = () => {
     <h1>Unauthorise Accesss</h1>
   ) : (
     <UserLayout title="Books">
-      <div className="mt-3">
-        <BookTable />
-      </div>
       <div className="d-grid">
         <Link to="/book/new">
           <Button variant="primary">Add new Book</Button>
         </Link>
+      </div>
+      <div className="mt-3">
+        <BookTable />
       </div>
     </UserLayout>
   );

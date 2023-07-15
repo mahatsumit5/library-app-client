@@ -7,6 +7,8 @@ import userReducer from "./pages/signup-signin/userSlice.js";
 import bookReducer from "./pages/Books/bookSlice.js";
 import burrowReducer from "./pages/burrow-history/burrowSlice.js";
 import userListReducer from "./pages/Students/studentSlice.js";
+import reviewReducer from "./pages/reviews/reviewSlice.js";
+import modalReducer from "./systemSlice.js";
 const userPresistConfig = {
   //this is a configurations
   key: "userInfo",
@@ -21,6 +23,8 @@ const store = configureStore({
     bookInfo: bookReducer, //this is stored inside the redux store
     burrowInfo: burrowReducer,
     studentListInfo: userListReducer,
+    reviewInfo: reviewReducer,
+    system: modalReducer,
   },
 });
 const persistor = persistStore(store);

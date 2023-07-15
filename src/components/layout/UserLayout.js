@@ -11,7 +11,6 @@ export const UserLayout = ({ children, title }) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userInfo);
   const handleOnClick = () => {
-    console.log("clicked");
     dispatch(fetchBurrowAction());
   };
   return (
@@ -40,6 +39,11 @@ export const UserLayout = ({ children, title }) => {
               <li>
                 <Link className="nav-link" to="/book">
                   Books
+                </Link>
+              </li>
+              <li>
+                <Link className="nav-link" to="/reviews">
+                  Reviews
                 </Link>
               </li>
               <li>

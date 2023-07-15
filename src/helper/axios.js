@@ -4,7 +4,7 @@ const rootApi = "http://localhost:8000";
 const userApi = rootApi + `/api/v1/user`;
 const bookApi = rootApi + `/api/v1/book`;
 const burrowApi = rootApi + `/api/v1/burrow`;
-const getUserIdFromLocalStorage = () => {
+export const getUserIdFromLocalStorage = () => {
   const str = localStorage.getItem("persist:userInfo");
   if (str) {
     const userInfo = JSON.parse(str);

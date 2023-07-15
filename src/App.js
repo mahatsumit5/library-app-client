@@ -20,12 +20,15 @@ import { fetchBurrowAction } from "./pages/burrow-history/burrowAction";
 import { Student } from "./pages/Students/Student";
 import { Profile } from "./pages/Profile/Profile";
 import { EditUser } from "./components/user/EditUser";
+import { getReviewAction } from "./pages/reviews/reviewAction";
+import { Reviews } from "./pages/reviews/Review";
 
 function App() {
   const dispatch = useDispatch();
   // fetch Books
   useEffect(() => {
     dispatch(fetchBookAction());
+    dispatch(getReviewAction());
   }, [dispatch]);
   return (
     <div className="">
@@ -49,6 +52,14 @@ function App() {
           element={
             <PrivateRoute>
               <Books />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/reviews"
+          element={
+            <PrivateRoute>
+              <Reviews />
             </PrivateRoute>
           }
         />

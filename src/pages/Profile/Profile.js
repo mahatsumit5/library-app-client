@@ -14,7 +14,7 @@ export const Profile = () => {
             <div className="profile-picture">
               {/* Display user's profile picture */}
               <a href={user.profile}>{user.profile}</a>
-              <img src={user.profile} alt="image" />
+              <img src={user.profile} width="150px" alt="profile" />
             </div>
             <div className="profile-details">
               {/* Display user's details */}

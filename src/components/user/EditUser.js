@@ -70,7 +70,7 @@ export const EditUser = () => {
       required: false,
       placeholder: "http://",
       type: "url",
-      value: form.profile,
+      // value: form.profile,
     },
   ];
 
