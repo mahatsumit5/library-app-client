@@ -43,7 +43,7 @@ export const ReviewList = ({ user }) => {
                   <div className="text-end">
                     <Dropdown>
                       <Dropdown.Toggle
-                        variant="warning"
+                        variant="success"
                         id="dropdown-basic"
                       ></Dropdown.Toggle>
 
@@ -61,7 +61,7 @@ export const ReviewList = ({ user }) => {
                   <></>
                 )}
                 <h3>{review?.updatedAt.slice(0, 10)}</h3>
-                <h3 className="text-end">
+                <h3 className="text-start">
                   <Stars num={review.rating} />
                 </h3>
                 <p>{review.review}</p>

@@ -19,17 +19,14 @@ export const BookLanding = () => {
   filteredReview?.map(({ rating }) => {
     totalRating += parseInt(rating) / filteredReview.length;
   });
-  console.log(totalRating);
-  // const star =
+  // totalRating =
   //   filteredReview.reduce((acc, item) => acc + +item.star, 0) /
   //   filteredReview.length;
   const { books } = useSelector((state) => state.bookInfo);
   const { user } = useSelector((state) => state.userInfo);
   const { thumbnail, title, author, year, summary, isAvailable, dueDate } =
     books.find((item) => item._id === _id) || {};
-  // const { fName } = user;
   const handleOnBurrow = () => {
-    console.log("first");
     const obj = {
       bookId: _id,
       bookName: title,
@@ -37,8 +34,6 @@ export const BookLanding = () => {
       userId: user._id,
       userName: user.fName + user.lName,
     };
-    console.log(obj);
-
     dispatch(addBurrowAction(obj));
   };
   return (

@@ -35,7 +35,7 @@ export const Review = ({ title, book }) => {
   ];
   const { _id } = useParams();
   const [review, setReview] = useState({
-    rating: 1,
+    rating: 0,
   });
   const { user } = useSelector((store) => store.userInfo);
 
@@ -66,7 +66,7 @@ export const Review = ({ title, book }) => {
         <Form onSubmit={handleOnSubmit}>
           <h2>How was your experience reading this book?</h2>
           <div className="fs-3">
-            {stars?.map(({ value, id }, index) => (
+            {stars?.map(({ value, id }) => (
               <>
                 <input
                   value={value}
@@ -76,8 +76,8 @@ export const Review = ({ title, book }) => {
                   id={id}
                 />
                 <label htmlFor={id}>
-                  {review.rating !== { value } &&
-                  { value } > parseInt(review.rating) ? (
+                  {review.rating !== value &&
+                  value > parseInt(review.rating) ? (
                     <AiOutlineStar />
                   ) : (
                     <AiFillStar className="text-warning " />
