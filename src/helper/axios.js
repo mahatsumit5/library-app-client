@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const rootApi =
-  process.env.NODE_ENV === "PRODUCTION"
-    ? "https://library-app-api4.onrender.com/"
-    : "http://localhost:8000";
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:8000"
+    : "https://library-app-api4.onrender.com/";
 const userApi = rootApi + `/api/v1/user`;
 const bookApi = rootApi + `/api/v1/book`;
 const burrowApi = rootApi + `/api/v1/burrow`;

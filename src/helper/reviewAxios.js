@@ -1,7 +1,10 @@
 import axios from "axios";
 import { getUserIdFromLocalStorage } from "./axios";
 
-const rootApi = "http://localhost:8000";
+const rootApi =
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:8000"
+    : "https://library-app-api4.onrender.com/";
 const reviewApi = rootApi + `/api/v1/review`;
 export const postReview = async (obj) => {
   try {
