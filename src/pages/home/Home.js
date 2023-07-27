@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../components/layout/Header";
 import { Footer } from "../../components/layout/Footer";
-import { CustomeCarousel } from "../../components/carousel/Carousel";
 import { useSelector } from "react-redux";
 import { CustomeCard } from "../../components/card/CustomeCard";
 import { Col, Container, Row, Form } from "react-bootstrap";
@@ -25,9 +24,6 @@ const Home = () => {
     <div className="main">
       <Header />
       <section className="main">
-        <div className="hero">
-          <CustomeCarousel />
-        </div>
         <Container fluid className="mt-5">
           <Row>
             <Col>

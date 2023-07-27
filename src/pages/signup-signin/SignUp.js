@@ -9,67 +9,71 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { postUser } from "../../helper/axios";
 import { useSelector } from "react-redux";
-const inputs = [
-  {
-    label: "First Name",
-    name: "fName",
-    required: true,
-    placeholder: "Sam",
-    type: "text",
-  },
-  {
-    label: "Last Name",
-    name: "lName",
-    required: true,
-    placeholder: "Smith",
-    type: "text",
-  },
-  {
-    label: "Email",
-    name: "email",
-    required: true,
-    placeholder: "Sam",
-    type: "email",
-  },
-  {
-    label: "Password",
-    name: "password",
-    required: true,
-    placeholder: "Sam",
-    type: "text",
-    minLength: "6",
-  },
-  {
-    label: "Confirm Password",
-    name: "confirmPassword",
-    required: true,
-    placeholder: "******",
-    type: "text",
-    minLength: "6",
-  },
-  {
-    label: "Phone",
-    name: "phone",
-    required: true,
-    placeholder: "041562783",
-    type: "tel",
-  },
-  {
-    label: "Address",
-    name: "address",
-    required: true,
-    placeholder: "222 george st, sydney",
-    type: "text",
-  },
-  {
-    label: "Profile Pic",
-    name: "profile",
-    required: false,
-    placeholder: ":http://www.google.com",
-    type: "url",
-  },
-];
+import { CustomToggleButton } from "../../components/Toggle/ToggleButton";
+
 const SignUp = () => {
+  const [inputType, setInputType] = useState("password");
+  const inputs = [
+    {
+      label: "First Name",
+      name: "fName",
+      required: true,
+      placeholder: "Sam",
+      type: "text",
+    },
+    {
+      label: "Last Name",
+      name: "lName",
+      required: true,
+      placeholder: "Smith",
+      type: "text",
+    },
+    {
+      label: "Email",
+      name: "email",
+      required: true,
+      placeholder: "Sam",
+      type: "email",
+    },
+    {
+      label: "Password",
+      name: "password",
+      required: true,
+      placeholder: "Sam",
+      type: inputType,
+      minLength: "6",
+      className: "input",
+    },
+    {
+      label: "Confirm Password",
+      name: "confirmPassword",
+      required: true,
+      placeholder: "******",
+      type: inputType,
+      minLength: "6",
+    },
+    {
+      label: "Phone",
+      name: "phone",
+      required: true,
+      placeholder: "041562783",
+      type: "tel",
+    },
+    {
+      label: "Address",
+      name: "address",
+      required: true,
+      placeholder: "222 george st, sydney",
+      type: "text",
+    },
+    {
+      label: "Profile Pic",
+      name: "profile",
+      required: false,
+      placeholder: ":http://www.google.com",
+      type: "url",
+    },
+  ];
   const { user } = useSelector((state) => state.userInfo);
   const [form, setForm] = useState({
     role: "student",
@@ -103,30 +107,37 @@ const SignUp = () => {
     <>
       <Header />
       <section className="main">
-        <Form className="m-5 p-5 border shadow-lg" onSubmit={handleOnSubmit}>
-          <h1>
-            <BiSolidUserDetail />
-            Add New Admin {user?.role === "admin" && "For Admin"}
-          </h1>
-          {user?.role === "admin" && (
-            <Form.Group className="mb-3">
-              <Form.Label>Select user type</Form.Label>
-              <Form.Select onChange={handldeOnChange} required name="role">
-                <option value="">--select--</option>
-                <option value="admin">Admin</option>
-                <option value="student">Student</option>
-              </Form.Select>
-            </Form.Group>
-          )}
-          {inputs.map((item, i) => (
-            <CustomeInput key={i} {...item} onChange={handldeOnChange} />
-          ))}
-          <div className="d-grid">
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </div>
-        </Form>
+        <div className="parent">
+          <Form
+            className="p-3 m-3 rounded-4 border shadow-lg"
+            onSubmit={handleOnSubmit}
+          >
+            <h1>
+              <BiSolidUserDetail />
+              Sign Up{user?.role === "admin" && "For Admin"}
+            </h1>
+            <hr></hr>
+            {user?.role === "admin" && (
+              <Form.Group className="mb-3 ">
+                <Form.Label>Select user type</Form.Label>
+                <Form.Select onChange={handldeOnChange} required name="role">
+                  <option value="">--select--</option>
+                  <option value="admin">Admin</option>
+                  <option value="student">Student</option>
+                </Form.Select>
+              </Form.Group>
+            )}
+            {inputs.map((item, i) => (
+              <CustomeInput key={i} {...item} onChange={handldeOnChange} />
+            ))}
+            <div className="d-grid">
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </div>
+            <CustomToggleButton setInputType={setInputType} />
+          </Form>
+        </div>
       </section>
       <Footer />
     </>

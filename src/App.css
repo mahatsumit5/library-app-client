@@ -1,5 +1,7 @@
 .main {
   min-height: calc(100vh - 169px);
+  /* display: flex;
+  justify-content: center; */
 }
 
 .left-menu {
@@ -11,14 +13,6 @@
   margin-left: 2rem;
   margin-top: 1rem;
   font-weight: bold;
-}
-
-.carousel {
-  height: 60vh;
-}
-
-.carousel img {
-  height: 60vh;
 }
 
 .review {
@@ -50,11 +44,11 @@
 
 svg {
   /* border: solid yellow; */
-  color: rgba(15, 15, 15, 0.804);
+  color: rgba(100, 105, 231, 0.804);
 }
 
 svg:hover {
-  color: rgb(224, 255, 20);
+  color: rgb(3, 22, 169);
 }
 
 .right-review {
@@ -64,4 +58,73 @@ svg:hover {
 
 .fs-3 > input {
   display: none;
+}
+.floatingInput {
+  font-family: monospace;
+  font-size: larger;
+  font-weight: 700;
+  color: #0a0a10;
+  border: 50px;
+}
+
+form {
+  width: 350px;
+}
+.parent {
+  position: relative;
+}
+.toggleButton {
+  position: absolute;
+  top: 350px;
+  right: 30px;
+}
+
+form:nth-child(5) {
+  border: solid black;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 360px;
+  height: 100vh;
+}
+h3 {
+  color: #767a7c;
+  font-size: 16px;
+}
+.login {
+  font-size: 20px;
+  font-weight: 700;
+}
+.inputEmail {
+  border: 50px;
+}
+.icon {
+  margin-right: 5px;
+}
+.fnb {
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #32383a;
+}
+.navbar {
+  position: sticky;
+  background-color: #dbe4e9;
+  top: 0;
+  z-index: 20;
+}
+.logout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0 !important;
+
+  padding: 15px;
+}
+@media only screen and (max-width: 570px) {
+  .main {
+    min-height: calc(100vh - 300px);
+  }
 }

@@ -5,7 +5,7 @@ import { Footer } from "./Footer";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBurrowAction } from "../../pages/burrow-history/burrowAction";
-import { fetchStudentAction } from "../../pages/Students/studentAction";
+import { FcLibrary } from "react-icons/fc";
 
 export const UserLayout = ({ children, title }) => {
   const dispatch = useDispatch();
@@ -15,10 +15,14 @@ export const UserLayout = ({ children, title }) => {
   };
   return (
     <div className="d-flex">
-      <div className="left-menu bg-dark text-light  ">
-        <div className="text-center mt-3 ">{user?.role?.toUpperCase()}</div>
-        <hr />
+      {/* <div className="left-menu bg-dark text-light  ">
+        <div className="text-center mt-3 ">
+          {" "}
+          <FcLibrary className="icon" /> LMS
+        </div>
+        <hr></hr>
         <ul className="list-unstyled mt-5">
+          <li>{user?.role}</li>
           <li>
             <Link className="nav-link" to="/dashboard">
               Dashboard
@@ -66,7 +70,7 @@ export const UserLayout = ({ children, title }) => {
             </Link>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="right-page w-100">
         <Header />
