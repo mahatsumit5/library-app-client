@@ -79,17 +79,15 @@ export const Header = () => {
                         <FaUsers />
                         Students
                       </Link>
+                      <Link
+                        className="nav-link "
+                        to="/  "
+                        onClick={handleOnSignout}
+                      >
+                        <ImExit /> logout
+                      </Link>
                     </>
                   )}
-                  <div className="logout  w-100 border shadow">
-                    <Link
-                      className="nav-link "
-                      to="/  "
-                      onClick={handleOnSignout}
-                    >
-                      <ImExit /> logout
-                    </Link>
-                  </div>
                 </>
               ) : (
                 <>

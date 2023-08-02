@@ -61,8 +61,8 @@ svg:hover {
 }
 .floatingInput {
   font-family: monospace;
-  font-size: larger;
-  font-weight: 700;
+  font-size: medium;
+  font-weight: 600;
   color: #0a0a10;
   border: 50px;
 }
@@ -88,7 +88,6 @@ form:nth-child(5) {
   justify-content: flex-start;
   flex-direction: column;
   width: 360px;
-  height: 100vh;
 }
 h3 {
   color: #767a7c;
@@ -122,6 +121,40 @@ h3 {
   margin: 0 !important;
 
   padding: 15px;
+}
+.card {
+  height: 450px;
+  width: 250px;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+  border: none;
+}
+.card:hover {
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+.card-body,
+.card-image-top {
+  border-radius: 10px;
+  position: absolute;
+  backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+}
+img {
+  height: 100%;
+  width: 100%;
+}
+.card-image-top {
+  animation: rotate 2s linear 1;
+  transition: 2s;
+}
+.card-body {
+  transform: rotateY(180deg);
+  background-color: #000b0ba7;
+  color: #dbe4e9;
 }
 @media only screen and (max-width: 570px) {
   .main {
