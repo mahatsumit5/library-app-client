@@ -30,7 +30,7 @@ export const BurrowHistory = () => {
         <Review book={selectedReview} />
       </CustomModal>
       <div className="mt-3">
-        <Table striped bordered hover>
+        <Table striped bordered hover responsive>
           <thead>
             <tr>
               <th>Thumnbnail</th>

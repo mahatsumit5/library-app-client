@@ -79,13 +79,6 @@ export const Header = () => {
                         <FaUsers />
                         Students
                       </Link>
-                      <Link
-                        className="nav-link "
-                        to="/  "
-                        onClick={handleOnSignout}
-                      >
-                        <ImExit /> logout
-                      </Link>
                     </>
                   )}
                 </>
@@ -103,6 +96,11 @@ export const Header = () => {
                     <ImExit /> Sign up
                   </Link>
                 </>
+              )}
+              {user?._id && (
+                <Link className="nav-link " to="/  " onClick={handleOnSignout}>
+                  <ImExit /> logout
+                </Link>
               )}
             </Nav>
           </Offcanvas.Body>

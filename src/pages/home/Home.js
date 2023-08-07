@@ -18,7 +18,6 @@ const Home = () => {
   const numberOfPagination = Math.ceil(totalnumberOfBooks / postPerPage);
 
   const booksToDisplay = books.slice(firstPostIndex, lastPostIndex);
-  console.log(booksToDisplay);
 
   useEffect(() => {
     setDisplay(books);

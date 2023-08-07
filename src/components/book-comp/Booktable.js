@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const BookTable = () => {
   const { books } = useSelector((state) => state.bookInfo);
   return (
-    <Table striped bordered hover>
+    <Table responsive striped bordered hover>
       <thead>
         <tr>
           <th>ID</th>
