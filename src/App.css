@@ -82,6 +82,16 @@ form {
 form:nth-child(5) {
   border: solid black;
 }
+.head {
+  position: sticky;
+  top: 0;
+}
+.profile-picture {
+  height: 20vh;
+  width: 20vw;
+  border: 10px solid black;
+  border-radius: 20px;
+}
 
 .flexCenter {
   display: flex;

@@ -75,11 +75,11 @@ export const UserLayout = ({ children, title }) => {
       <div className="right-page w-100">
         <Header />
 
-        <Container className="main">
+        <div className="main p-2">
           <h1 className="mt-2">{title}</h1>
           <hr />
           {children}
-        </Container>
+        </div>
         <Footer />
       </div>
     </div>

@@ -80,6 +80,22 @@ export const updateUser = async (formData) => {
     };
   }
 };
+export const updateImage = async (formData) => {
+  try {
+    const options = {
+      headers: {
+        Authorization: getUserIdFromLocalStorage(),
+      },
+    };
+    const { data } = await axios.put(userApi + "/uploadImg", formData, options);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
 export const postBook = async (obj) => {
   try {
     const options = {

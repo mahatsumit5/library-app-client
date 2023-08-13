@@ -30,8 +30,14 @@ export const BurrowHistory = () => {
         <Review book={selectedReview} />
       </CustomModal>
       <div className="mt-3">
-        <Table striped bordered hover responsive>
-          <thead>
+        <Table
+          striped
+          bordered
+          hover
+          responsive
+          style={{ position: "relative" }}
+        >
+          <thead className="head">
             <tr>
               <th>Thumnbnail</th>
               <th>BookName</th>
@@ -46,7 +52,11 @@ export const BurrowHistory = () => {
             {burrows?.map((item, i) => (
               <tr key={item._id}>
                 <td>
-                  <img src={item.thumbnail} width="150px" alt="image" />
+                  <img
+                    src={item.thumbnail}
+                    alt="image"
+                    style={{ width: "150px" }}
+                  />
                 </td>
                 <td width={10}>
                   <h2>{item.bookName}</h2>

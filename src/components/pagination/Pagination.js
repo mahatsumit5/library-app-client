@@ -6,6 +6,7 @@ const CustomPagination = ({
   setCurrentPage,
   currentPage,
 }) => {
+  console.log(currentPage);
   let pagination = [];
   for (let i = 1; i <= paginationNumber; i++) {
     pagination.push(i);
